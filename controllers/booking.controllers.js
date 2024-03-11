@@ -25,7 +25,7 @@ const getAllUserFlightDetails = async (req, res) => {
     const booking_details = await Promise.all(
       bookings.map(async (booking) => {
         const flight_details = await Flight.findOne(booking.flight);
-        return flight_details;
+        return { flight_details, booking_id: booking._id };
       })
     );
     res.status(200).json({ booking_details });
@@ -47,7 +47,7 @@ const updateUserFlightBooking = async (req, res) => {
       throw "You haven't booked for this flight! Please book your flight first!";
 
     await Booking.findByIdAndUpdate(bookingFound._id, payload);
-    res.status(200).json({ message: "Booking has been updated successfully." });
+    res.status(204).json({ message: "Booking has been updated successfully." });
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -65,7 +65,7 @@ const deleteUserFlightBooking = async (req, res) => {
       throw "You haven't booked for this flight! Please book your flight first!";
 
     await Booking.findByIdAndDelete(bookingFound._id);
-    res.status(200).json({ message: "Booking has been deleted successfully." });
+    res.status(202).json({ message: "Booking has been deleted successfully." });
   } catch (error) {
     res.status(400).json({ error });
   }

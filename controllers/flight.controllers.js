@@ -59,7 +59,7 @@ const updateFlightById = async (req, res) => {
   const payload = req.body;
   try {
     await Flight.findByIdAndUpdate(flightID, payload);
-    res.status(200).json({
+    res.status(204).json({
       message: `Flight details of flight ID: ${flightID} has been udpated.`,
     });
   } catch (error) {
@@ -71,7 +71,7 @@ const deleteFlightById = async (req, res) => {
   const flightID = req.params.id;
   try {
     await Flight.findByIdAndDelete(flightID);
-    res.status(200).json({
+    res.status(202).json({
       message: `Flight details of flight ID: ${flightID} has been deleted.`,
     });
   } catch (error) {

@@ -33,7 +33,7 @@ const userLogin = async (req, res) => {
         { userID: userFound._id },
         process.env.ACCESS_TOKEN_SECRET
       );
-      res.status(200).json({ message: "Successfully logged in!", accessToken });
+      res.status(201).json({ message: "Successfully logged in!", accessToken });
     });
   } catch (error) {
     res.status(400).json({ error });
