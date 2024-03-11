@@ -1,7 +1,7 @@
 {
   "name": "air-ticket-booking",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the Air Ticket Booking, where user can register/login to their accounts, book their flight tickets and also get information about the flights.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
