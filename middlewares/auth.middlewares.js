@@ -9,6 +9,7 @@ const auth = async (req, res, next) => {
       const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
       if (decoded) {
         const userFound = await User.findOne({ _id: decoded.userID });
+        req.id = userFound._id;
         req.name = userFound.name;
         next();
       } else {
