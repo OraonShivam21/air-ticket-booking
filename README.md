@@ -1,3 +1,3 @@
 # air-ticket-booking
 
-[View API Documentation](path/to/exported/documentation.json)
+[View API Documentation](Air-Ticket-Booking.postman_collection.json)
