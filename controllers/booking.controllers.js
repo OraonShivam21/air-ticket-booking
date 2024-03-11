@@ -47,7 +47,7 @@ const updateUserFlightBooking = async (req, res) => {
       throw "You haven't booked for this flight! Please book your flight first!";
 
     await Booking.findByIdAndUpdate(bookingFound._id, payload);
-    res.status(204).json({ message: "Booking has been updated successfully." });
+    res.status(204);
   } catch (error) {
     res.status(400).json({ error });
   }

@@ -59,9 +59,7 @@ const updateFlightById = async (req, res) => {
   const payload = req.body;
   try {
     await Flight.findByIdAndUpdate(flightID, payload);
-    res.status(204).json({
-      message: `Flight details of flight ID: ${flightID} has been udpated.`,
-    });
+    res.status(204);
   } catch (error) {
     res.status(400).json({ error });
   }
