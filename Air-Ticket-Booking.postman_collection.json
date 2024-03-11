@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "e6923634-d5ee-49f5-8b2f-ecab7c6ee44a",
+		"name": "Air-Ticket-Booking",
+		"description": "Air ticket booking is an api server where user can register and login as well to see all the flight details, as well as book these flights. Here an authorized individual can also add new flight details, update those details, and can delete flight details as well.\n\nUser can book themselves flights, and can also see and update their flights, and also can delete their bookings as well.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32862736"
+	},
+	"item": [
+		{
+			"name": "api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Samantha\",\r\n    \"email\": \"samantha@gmail.com\",\r\n    \"password\": \"samantha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://air-ticket-booking-api.onrender.com/api/register",
+				"description": "Route to register a new user."
+			},
+			"response": []
+		},
+		{
+			"name": "api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"samantha@gmail.com\",\r\n    \"password\": \"samantha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://air-ticket-booking-api.onrender.com/api/login",
+				"description": "Here user can login with their email and password and get their accessToken."
+			},
+			"response": []
+		},
+		{
+			"name": "api/flights",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "https://air-ticket-booking-api.onrender.com/api/flights",
+				"description": "With this route, you can get all the flight details."
+			},
+			"response": []
+		},
+		{
+			"name": "api/flights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWVlZmQxYWM2YjQyYWFiZmIxOTRmZTQiLCJpYXQiOjE3MTAxNjE2ODV9.FyOvYmZwjU6b4TUhxRSNEr64lOayAjifEbmeWFWZPog",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"airline\": \"Air India\",\r\n    \"flightNo\": \"MB3490\",\r\n    \"departure\": \"Mumbai\",\r\n    \"arrival\": \"Kolkata\",\r\n    \"departureTime\": \"2024-02-11T10:00:00.000Z\",\r\n    \"arrivalTime\": \"2024-02-11T14:00:00.000Z\",\r\n    \"seats\": 214,\r\n    \"price\": 14000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://air-ticket-booking-api.onrender.com/api/flights",
+				"description": "This route give access to the authorized user to add new flight details."
+			},
+			"response": []
+		}
+	]
+}
