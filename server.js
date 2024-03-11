@@ -1,9 +1,16 @@
 const express = require("express");
 const connection = require("./connection");
+const userRoute = require("./routes/user.routes");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware to parse json body
+app.use(express.json());
+
+// routes for booking, flight, and user
+app.use("/api", userRoute);
 
 app.get("/api", (req, res) => {
   res
