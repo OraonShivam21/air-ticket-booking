@@ -1,6 +1,7 @@
 const express = require("express");
 const connection = require("./connection");
 const userRoute = require("./routes/user.routes");
+const flightRoute = require("./routes/flight.routes");
 require("dotenv").config();
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 // routes for booking, flight, and user
 app.use("/api", userRoute);
+app.use("/api", flightRoute);
 
 app.get("/api", (req, res) => {
   res
